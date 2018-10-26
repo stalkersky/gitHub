@@ -1,0 +1,45 @@
+<GridLayout_2>:
+    id: LED Turner
+    rows: 5
+    padding: 10
+    spacing: 10
+
+    BoxLayout:
+        orientation: "horizontal"
+
+        BoxLayout:
+            spacing: 10
+
+            TabbedPanel:
+                do_default_tab: False
+
+                TabbedPanelItem:
+                    text: "LED OFF"
+                    on_press: root.LEDoff()
+                    Label:
+                        text: "LED OFF"
+                TabbedPanelItem:
+                    text: "LED ON"
+                    on_press: root.LEDon()
+                    Label:
+                        text: "LED ON"
+
+    BoxLayout:
+        spacing: 10
+        size_hint_y: .5
+        Button:
+            text: "Watch the input"
+            on_press: root.Obserwuj_Wejscie()
+
+    BoxLayout:
+        spacing: 10
+        size_hint_y: .3
+        Button:
+            text: "END"
+            on_press: root.EndButton()
+
+
+
+
+
+

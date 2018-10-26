@@ -1,0 +1,46 @@
+import kivy
+kivy.require("1.9.0")
+
+from kivy.app import App
+from kivy.uix.gridlayout import GridLayout
+
+import serial
+import time
+
+try:
+    ser = serial.Serial('COM3', 9600)
+except:
+    print("\nNie mozna polaczyc sie z plytka!")
+    time.sleep(2)
+    exit(0)
+
+time.sleep(1)
+
+class GridLayout_2(GridLayout):
+
+    def LEDon(self):
+        ser.write(b'on')
+        print("LED is ON")
+
+    def LEDoff(self):
+        ser.write(b'off')
+        print("LED is OFF")
+
+    def EndButton(self):
+        ser.write(b'off')
+        exit(0)
+
+    def Obserwuj_Wejscie(self):
+        odbDane = ser.read_all()
+        print(odbDane)
+        pass
+
+
+class GridLayout_2App(App):
+    def build(self):
+        return GridLayout_2()
+
+glApp = GridLayout_2App()
+glApp.run()
+
+

@@ -1,0 +1,10 @@
+import lightblue
+
+devices = lightblue.finddevices()
+for dev in devices:
+	print dev
+	services = lightblue.findservices(dev[0])
+	for s in services:
+		print s
+	print
+	print
